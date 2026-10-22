@@ -1,20 +1,25 @@
-# WhisperType for Android — official signed downloads
+# WhisperType — Official Android Downloads
 
-**Private, offline-first AI voice typing for Android 13+ (arm64).** WhisperType 1.3.0 introduces four on-device speech recognition engines with **Gemini Live as an optional cloud alternative**, not the default requirement.
+**Private, offline-first AI voice typing for Android.** WhisperType inserts recognized speech into ordinary Android text fields using a floating microphone or MiniBar. Use one of four on-device speech models, or explicitly select **Gemini Live** for cloud transcription.
 
-## Download
+**Latest official version: 1.3.0** — major offline-AI release, upgrading production **1.2.34**. Android 13+; the current optimized native models target ARM64 devices.
 
-[**Latest official APK**](https://github.com/chaosmanage/WhisperType-Android-Downloads/releases/latest/download/app-release.apk) · [**Latest SHA-256 checksum**](https://github.com/chaosmanage/WhisperType-Android-Downloads/releases/latest/download/app-release.apk.sha256) · [**All releases**](https://github.com/chaosmanage/WhisperType-Android-Downloads/releases)
+## Download the verified APK
 
-**Upgrade in place** from an existing official installation; don't uninstall first, because that can erase settings, dictionaries and stored credentials. Check the APK SHA-256 against the published checksum. Android asks for installation approval; updates are never installed silently.
+- [Latest official WhisperType APK](https://github.com/chaosmanage/WhisperType-Android-Downloads/releases/latest/download/app-release.apk)
+- [SHA-256 checksum](https://github.com/chaosmanage/WhisperType-Android-Downloads/releases/latest/download/app-release.apk.sha256)
+- [Release notes and previous versions](https://github.com/chaosmanage/WhisperType-Android-Downloads/releases)
 
-## New in 1.3.0
+Compare the APK's SHA-256 with the published checksum before installing. Android will ask you to approve APK installation. **Do not uninstall your existing WhisperType app to upgrade**; doing so can erase local settings, dictionary, and encrypted data. The official 1.3.0 APK retains the existing `com.whispertype.android` package and production signing certificate.
 
-- **Local AI (after one-time model download):** Parakeet 110M, Parakeet Realtime EOU 120M, Moonshine English Base, Moonshine Small Streaming. Offline dictation stays on the device, requires no Gemini key and has no automatic cloud fallback.
-- **Optional Gemini Live:** when deliberately selected, live audio is sent directly to Google's API; needs internet access and your own Gemini API key.
-- Floating microphone and MiniBar with secure text-field insertion, optional encrypted local history, custom dictionary and optional encrypted saved recordings.
-- Streamlined model management and native memory optimizations. Performance varies across Android devices; the four engines have not all completed the same device acceptance matrix.
+## Speech engines and privacy
 
-The APK contains native runtime libraries and a verified Moonshine decoder-projection derivative, **not full offline-model checkpoints**. The model files are separately downloaded into the app's private storage and verified before use. An internet connection is needed for the initial download and app updates, not ongoing offline recognition.
+The following local models can transcribe entirely **on-device after their first verified download**: Parakeet 110M Q4_K, Parakeet Realtime EOU 120M Q4_K, Moonshine English Base, and Moonshine Small Streaming. Offline mode does not need a Gemini API key or an internet connection during dictation, and it never silently sends recordings to Gemini if an offline model fails.
 
-This repository is a **public download-and-update feed only**. WhisperType's source repository is private; no source, signing keys, recordings, or API credentials are published here.
+**Gemini Live is optional.** If selected, voice audio is sent directly to Google's Gemini API over TLS and requires internet and a user-provided key. Model downloads, release checks, and app updates also use the network. WhisperType has no relay server, user accounts, or telemetry. Optional local transcript history and saved audio are encrypted and user-controlled.
+
+## About this repository
+
+This public repository distributes **only official signed release APKs and corresponding SHA-256 files**. The source code and signing material are kept separately in the private source repository. Device-dependent accuracy, memory usage, and performance vary by model; see the 1.3.0 release notes for outstanding acceptance limitations.
+
+Screenshots will be updated using real device captures when supplied. No AI-generated replacement screenshots are included.
